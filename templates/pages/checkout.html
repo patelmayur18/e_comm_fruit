@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contant %}
+    
+    
+    <!--Page Title-->
+    <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
+        <div class="auto-container">
+            <h1>Checkout</h1>
+        </div>
+    </section>
+    
+    
+    <section class="contact-section">
+        <div class="auto-container">
+            <!--Section Title-->
+            <div class="sec-title-one">
+                <h2>Leave a messsge here</h2>
+            </div>
+    
+            <div class="contact-form default-form">
+                <form method="post" action="http://world5.commonsupport.com/2017/warsaw/sendemail.php" id="contact-form">
+                    <div class="row clearfix">
+    
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="firstname" value="" placeholder="First Name *">
+                        </div>
+    
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="lastname" value="" placeholder="Last Name *">
+                        </div>
+    
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <input type="email" name="email" value="" placeholder="Email *">
+                        </div>
+    
+                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="subject" value="" placeholder="Subject *">
+                        </div>
+    
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <textarea name="message" placeholder="Message"></textarea>
+                        </div>
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <div class="text-center"><button type="submit" class="theme-btn btn-style-one">Submit Now
+                                </button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="info-section">
+        <div class="auto-container">
+            <div class="row clearfix">
+    
+                <!--Info Column-->
+                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="0ms"
+                    data-wow-duration="1500ms">
+                    <div class="column-header">
+                        <h3>Address</h3>
+                    </div>
+                    <div class="info-box">
+                        <div class="inner">
+                            <div class="icon"><span class="flaticon-placeholder"></span></div>
+                            <h4>Address</h4>
+                            <div class="text">44 New Design Street, Down Town, Melbourne 005</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!--Info Column-->
+                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="300ms"
+                    data-wow-duration="1500ms">
+                    <div class="column-header">
+                        <h3>Call Now</h3>
+                    </div>
+                    <div class="info-box">
+                        <div class="inner">
+                            <div class="icon"><span class="flaticon-technology-4"></span></div>
+                            <h4>Call to Us</h4>
+                            <div class="text">564-334-21-22-34 <br>664-334-21-22-34 </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!--Info Column-->
+                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="600ms"
+                    data-wow-duration="1500ms">
+                    <div class="column-header">
+                        <h3>Emails us</h3>
+                    </div>
+                    <div class="info-box">
+                        <div class="inner">
+                            <div class="icon"><span class="flaticon-envelope"></span></div>
+                            <h4>Info Services</h4>
+                            <div class="text">information@yourdomain.com</div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--Map Section-->
+    <section class="map-section">
+        <div class="map-outer">
+    
+            <!--Map Canvas-->
+            <div class="map-canvas" data-zoom="10" data-lat="23.815811" data-lng="90.412580" data-type="roadmap"
+                data-hue="#fc721e" data-title="Dhaka"
+                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
+                style="height:450px;">
+            </div>
+    
+        </div>
+    </section>
+    
+    
+    <!--Subscribe Section-->
+    <section class="subscribe-section">
+        <div class="auto-container">
+            <!--Form Container-->
+            <div class="form-container">
+                <div class="row clearfix">
+    
+                    <div class="col-lg-4 col-md-12 col-xs-12">
+                        <h5>Newsletter</h5>
+                        <h3>Stay tune for updates</h3>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-xs-12">
+                        <div class="subscribe-form">
+                            <form method="post" action="http://world5.commonsupport.com/2017/warsaw/contact.html">
+                                <div class="form-group">
+                                    <input type="email" name="email" value="" placeholder="Enter Your Email" required>
+                                    <button type="submit" class="theme-btn btn-style-three">Send Now</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+{% endblock contant %}

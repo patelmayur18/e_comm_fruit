@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block contant %}
+<div>
+  <!-- component -->
+<!-- Icons font CSS-->
+<link href="{% static 'account/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+<link href="{% static 'account/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+<!-- Font special for pages-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i"
+  rel="stylesheet">
+
+<!-- Vendor CSS-->
+<link href="{% static 'account/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+<link href="{% static 'account/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+<!-- Main CSS-->
+<link href="{% static 'account/css/main.css' %}" rel="stylesheet" media="all">
+</div>
+<div class="page-wrapper bg-red p-t-180 p-b-100 font-robo">
+  <div class="wrapper wrapper--w960">
+    <div class="card card-2">
+      <div class="card-heading"></div>
+      <div class="card-body">
+        <h2 class="title">Login</h2>
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <!-- Jquery JS-->
+  <script src="{% static 'account/vendor/jquery/jquery.min.js' %}"></script>
+  <!-- Vendor JS-->
+  <script src="{% static 'account/vendor/select2/select2.min.js' %}"></script>
+  <script src="{% static 'account/vendor/datepicker/moment.min.js' %}"></script>
+  <script src="{% static 'account/vendor/datepicker/daterangepicker.js' %}"></script>
+  
+  <!-- Main JS-->
+  <script src="{% static 'account/js/global.js' %}"></script>
+</div>
+{% endblock contant %}
