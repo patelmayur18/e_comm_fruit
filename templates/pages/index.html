@@ -328,83 +328,22 @@
 					
                     
                     <!--Default Food Item-->
+                    
+                    {% for disease in Disease %}
                     <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all juices">
                         <div class="inner-box">
                             <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/1.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/1.jpg' %}" alt=""></a></figure>
+                                <figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery"
+                                        href="{{disease.disease_photo.url}}"  title="{{disease.disease_name}}"><img
+                                            src="{{disease.disease_photo.url}}" style="min-height: 262px;max-height: 262px;" alt=""></a></figure>
                                 <div class="lower-content">
-                                	<h3><a href="shop.html">Passion Fruits</a></h3>
-                                    <div class="price">$ 25.00</div>
+                                    <h3><a href="{{disease.get_absolute_url}}">{{disease.disease_name}}</a></h3>
+                                    <!-- <div class="price">$ 25.00</div> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <!--Default Food Item-->
-                    <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all breads juices">
-                        <div class="inner-box">
-                            <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/2.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/2.jpg' %}" alt=""></a></figure>
-                                <div class="lower-content">
-                                	<h3><a href="shop.html">Kiwi Fruits</a></h3>
-                                    <div class="price">$ 18.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Default Food Item-->
-                    <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all fruits vegetables">
-                        <div class="inner-box">
-                            <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/3.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/3.jpg' %}" alt=""></a></figure>
-                                <div class="lower-content">
-                                	<h3><a href="shop.html">Tomatoes</a></h3>
-                                    <div class="price">$ 30.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Default Food Item-->
-                    <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all fruits vegetables breads juices">
-                        <div class="inner-box">
-                            <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/4.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/4.jpg' %}" alt=""></a></figure>
-                                <div class="lower-content">
-                                	<h3><a href="shop.html">Ripe pea</a></h3>
-                                    <div class="price">$ 15.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Default Food Item-->
-                    <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all vegetables">
-                        <div class="inner-box">
-                            <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/5.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/5.jpg' %}" alt=""></a></figure>
-                                <div class="lower-content">
-                                	<h3><a href="shop.html">Figs Sweet</a></h3>
-                                    <div class="price">$ 18.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!--Default Food Item-->
-                    <div class="col-md-4 col-sm-6 col-xs-12 default-food-item mix mix_all all breads juices">
-                        <div class="inner-box">
-                            <div class="image-box">
-                            	<figure class="image"><a class="lightbox-image option-btn" data-fancybox-group="example-gallery" href="{% static 'images/gallery/6.jpg' %}" title="Image Title Here"><img src="{% static 'images/gallery/6.jpg' %}" alt=""></a></figure>
-                                <div class="lower-content">
-                                	<h3><a href="shop.html">Rye Bread</a></h3>
-                                    <div class="price">$ 20.00</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
 
 				<!--Button Outer-->

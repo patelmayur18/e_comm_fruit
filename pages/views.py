@@ -1,15 +1,39 @@
 from django.shortcuts import render
-
+from .models import Disease,Product
+from django.views.generic import TemplateView,DetailView,ListView
+from django.core.paginator import Paginator
 # Create your views here.
-def index(request):
-    return render(request,'pages/index.html')
+# def index(request):
+
+#     return render(request,'pages/index.html')
+class DiseaseListView(TemplateView):
+    template_name = 'pages/index.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super(DiseaseListView,self).get_context_data(*args,**kwargs)
+        context['Disease'] = Disease.objects.all()
+        return context
 
 
-def product(request):
-    return render(request,'pages/shop.html')
+# def product(request,slug):
+#     return render(request,'pages/shop.html')
 
-def single_product(request):
-    return render(request,'pages/shop-single.html')    
+def ProductListView(request,slug):
+    d = Disease.objects.get(disease_slug = slug )
+    Products = Product.objects.filter(disease__in = [d])
+    paginator = Paginator(Products,4)
+    page = request.GET.get('page')
+    paged_products = paginator.get_page(page)
+    context = {
+        'Products':paged_products,
+    }
+    return render(request,'pages/shop.html',context)    
+
+# def single_product(request,slug):
+#     return render(request,'pages/shop-single.html')
+
+class ProductDetailView(DetailView):
+    model = Product
+    template_name =  'pages/shop-single.html'      
 
 def cart(request):
     return render(request,'pages/shopping-cart.html')   
