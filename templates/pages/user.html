@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block contant %}
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+    <div class="container">
+        <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+            {% for user in user_detail %}
+            <div class="col-first">
+                <h1>User Details: {{user.mail}}</h1>
+            </div>
+            <div class="form-group col-md-6">
+                <label>First Name: {{user.first_name}}</label>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Last Name: {{user.last_name}}</label>
+            </div>
+            <div class="form-group col-md-6">
+                <label>Username: {{user.username}}</label>
+            </div>
+            {% endfor %}
+            
+            {% for user in user_address %}
+            <div class="form-group col-md-6">
+                <label>Address: {{user.address_line_1}}</label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

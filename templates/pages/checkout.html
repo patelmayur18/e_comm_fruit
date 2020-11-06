@@ -1,150 +1,198 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contant %}
-    
-    
-    <!--Page Title-->
-    <section class="page-title" style="background-image:url(images/background/bg-page-title-1.jpg);">
-        <div class="auto-container">
-            <h1>Checkout</h1>
-        </div>
-    </section>
-    
-    
-    <section class="contact-section">
-        <div class="auto-container">
-            <!--Section Title-->
-            <div class="sec-title-one">
-                <h2>Leave a messsge here</h2>
-            </div>
-    
-            <div class="contact-form default-form">
-                <form method="post" action="http://world5.commonsupport.com/2017/warsaw/sendemail.php" id="contact-form">
-                    <div class="row clearfix">
-    
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="firstname" value="" placeholder="First Name *">
-                        </div>
-    
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="lastname" value="" placeholder="Last Name *">
-                        </div>
-    
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" name="email" value="" placeholder="Email *">
-                        </div>
-    
-                        <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="subject" value="" placeholder="Subject *">
-                        </div>
-    
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <textarea name="message" placeholder="Message"></textarea>
-                        </div>
-                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                            <div class="text-center"><button type="submit" class="theme-btn btn-style-one">Submit Now
-                                </button></div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    
-    <section class="info-section">
-        <div class="auto-container">
-            <div class="row clearfix">
-    
-                <!--Info Column-->
-                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="0ms"
-                    data-wow-duration="1500ms">
-                    <div class="column-header">
-                        <h3>Address</h3>
-                    </div>
-                    <div class="info-box">
-                        <div class="inner">
-                            <div class="icon"><span class="flaticon-placeholder"></span></div>
-                            <h4>Address</h4>
-                            <div class="text">44 New Design Street, Down Town, Melbourne 005</div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!--Info Column-->
-                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="300ms"
-                    data-wow-duration="1500ms">
-                    <div class="column-header">
-                        <h3>Call Now</h3>
-                    </div>
-                    <div class="info-box">
-                        <div class="inner">
-                            <div class="icon"><span class="flaticon-technology-4"></span></div>
-                            <h4>Call to Us</h4>
-                            <div class="text">564-334-21-22-34 <br>664-334-21-22-34 </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <!--Info Column-->
-                <div class="info-column col-md-4 col-sm-4 col-xs-12 wow fadeInUp" data-wow-delay="600ms"
-                    data-wow-duration="1500ms">
-                    <div class="column-header">
-                        <h3>Emails us</h3>
-                    </div>
-                    <div class="info-box">
-                        <div class="inner">
-                            <div class="icon"><span class="flaticon-envelope"></span></div>
-                            <h4>Info Services</h4>
-                            <div class="text">information@yourdomain.com</div>
-                        </div>
-                    </div>
-                </div>
-    
-            </div>
-        </div>
-    </section>
-    
-    
-    <!--Map Section-->
-    <section class="map-section">
-        <div class="map-outer">
-    
-            <!--Map Canvas-->
-            <div class="map-canvas" data-zoom="10" data-lat="23.815811" data-lng="90.412580" data-type="roadmap"
-                data-hue="#fc721e" data-title="Dhaka"
-                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
-                style="height:450px;">
-            </div>
-    
-        </div>
-    </section>
-    
-    
-    <!--Subscribe Section-->
-    <section class="subscribe-section">
-        <div class="auto-container">
-            <!--Form Container-->
-            <div class="form-container">
-                <div class="row clearfix">
-    
-                    <div class="col-lg-4 col-md-12 col-xs-12">
-                        <h5>Newsletter</h5>
-                        <h3>Stay tune for updates</h3>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-xs-12">
-                        <div class="subscribe-form">
-                            <form method="post" action="http://world5.commonsupport.com/2017/warsaw/contact.html">
-                                <div class="form-group">
-                                    <input type="email" name="email" value="" placeholder="Enter Your Email" required>
-                                    <button type="submit" class="theme-btn btn-style-three">Send Now</button>
+
+
+<!--Page Title-->
+<section class="page-title" style="background-image:url(static/images/background/bg-page-title-1.jpg);">
+    <div class="auto-container">
+        <h1>Checkout</h1>
+    </div>
+</section>
+
+
+<!--Checkout Page-->
+<div class="checkout-page">
+    <div class="auto-container">
+
+        <div class="row clearfix">
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <!--Default Links-->
+                <ul class="default-links">
+                    <li>Exisitng Customer? <a href="#">Click here to login</a></li>
+                </ul>
+
+                <!--Billing Details-->
+                <div class="billing-details">
+                    <div class="shop-form">
+                        <form method="POST" >
+                            {% csrf_token %}
+                            
+
+                            <div class="row clearfix">
+                                <div class="default-title">
+                                    <h2>Billing Details</h2>
                                 </div>
-                            </form>
-                        </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.billing_address_line_1}}
+                                </div>
+
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.billing_address_line_2}}
+                                </div>
+
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.billing_zip_code}}
+                                </div>
+
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.billing_city}}
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    
+                                </div>
+
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.billing_mobile_number}}
+                                </div>
+                            </div>
+                            <div class="row clearfix">
+                                <div class="default-title">
+                                    <h2>Shipping Details</h2>
+                                </div>
+                                
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.shipping_address_line_1}}
+                                </div>
+                            
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.shipping_address_line_2}}
+                                </div>
+                            
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.shipping_zip_code}}
+                                </div>
+                            
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.shipping_city}}
+                                </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                   
+                                </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.shipping_mobile_number}}
+                                </div>
+
+                               
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.selected_billing_address}}
+                                </div>
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    {{form.selected_shipping_address}}
+                                </div>
+
+                            <button type="submit" class="theme-btn btn-style-two">Place Order</button>
+                            </div>
+                        </form>
+
                     </div>
-    
+
                 </div>
+                <!--End Billing Details-->
             </div>
+
+            <div class="col-md-4 col-sm-12 col-xs-12">
+                <!--Your Order-->
+                <div class="your-order">
+                    <div class="default-title">
+                        <h2>Your Order</h2>
+                    </div>
+                    <!--Orders Table-->
+                    <ul class="orders-table">
+                        <li class="table-header clearfix">
+                            <div class="col">Product</div>
+                            <div class="col">Total</div>
+                        </li>
+                        
+                        {% for o in order.items.all %}
+                        <li class="clearfix">
+                            <div class="col">{{o.item.title}} x {{o.quantity}}</div>
+                            <div class="col">$ {{o.get_cart_raw_total}}</div>
+                        </li>
+                        {% endfor %}
+                        <li class="clearfix">
+                            <div class="col">Subtotals</div>
+                            <div class="col">${{order.grand_total}}</div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="col">Shipping </div>
+                            <div class="col">Free Shipping </div>
+                        </li>
+                        <li class="total clearfix">
+                            <div class="col">Total </div>
+                            <div class="col">${{order.grand_total}}</div>
+                        </li>
+                    </ul>
+
+                </div>
+                <!--End Your Order-->
+
+
+                <!--Place Order-->
+                <div class="place-order">
+                    <div class="default-title">
+                        <h2>Payment Method</h2>
+                    </div>
+
+                    <!--Payment Options-->
+                    <div class="payment-options">
+                        <ul>
+                            <li>
+                                <div class="radio-option">
+                                    <input type="radio" name="payment-group" id="payment-1" checked>
+                                    <label for="payment-1"><strong>Cheque Payment</strong><span class="small-text">Make
+                                            your payment directly into our bank account. Please use your Order ID as the
+                                            payment reference. Your order won’t be shipped until the funds have cleared
+                                            in our account.</span></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio-option">
+                                    <input type="radio" name="payment-group" id="payment-2">
+                                    <label for="payment-2"><strong>Direct Bank Transfer</strong><span
+                                            class="small-text">Please send your cheque to Store Name, Store Street,
+                                            Store Town, Store State / County, Store Postcode.</span></label>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="radio-option">
+                                    <input type="radio" name="payment-group" id="payment-3">
+                                    <label for="payment-3"><strong>Paypal</strong> <img
+                                            src="images/icons/credit-card-icon.png" alt=""></label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+
+                </div>
+                <!--End Place Order-->
+            </div>
+
         </div>
-    </section>
-    
+
+    </div>
+</div>
+
 {% endblock contant %}

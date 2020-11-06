@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+LOGIN_REDIRECT_URL = 'home'
 
 # Application definition
 
@@ -38,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages',
+    'accounts',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +133,14 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static'),]
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+SITE_ID = 1
+#This section for varification email
+EMAIL_USE_TLS = True ## TLS = Transfer Layer Security
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'mpatel1651996@gmail.com'
+EMAIL_HOST_PASSWORD = 'xraylqofbawzdryf'
+EMAIL_PORT = 587
+
+# PAYPAL_CLIENT_ID = 'Please Enter Your Id'
+# PAYPAL_SECRET_KEY = 'Please Enter Your Key'

@@ -33,11 +33,11 @@
                             <div class="text">{{product.discription}}</div>
                             <div class="availablity">Available: {{product.stock}} items Left in Stock</div>
                             
-                            <div class="clearfix">
-                                <div class="item-quantity"><div class="quantity-spinner"><button type="button" class="minus"><span class="fa fa-minus"></span></button><input type="text" name="product" value="1" class="prod_qty" /><button type="button" class="plus"><span class="fa fa-plus"></span></button></div></div>
-                                <button type="button" class="theme-btn btn-style-one add-to-cart">Add To Cart <span class="icon fa fa-shopping-cart"></span></button>
-                            </div>
                             
+                            <div class="clearfix">
+                                <a href="{% url 'add_to_cart' product.slug %}" class="theme-btn btn-style-one add-to-cart">Add To Cart <span
+                                        class="icon fa fa-shopping-cart"></span></a>
+                            </div>
                         </div>
                     </div>
                 </div><!--Basic Details-->
@@ -170,100 +170,35 @@
                 <div class="row clearfix">
                     
                     <!--Default Shop Item-->
+                    
+                    
+                    {% for product in related_product %}
                     <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
                         <div class="inner-box">
                             <div class="image-box">
-                                <figure class="image"><a href="shop-single.html"><img src="{% static 'images/resource/products/image-9.jpg' %}" alt=""></a></figure>
+                                <figure class="image"><a href="shop-single.html"><img
+                                            src="{% static 'images/resource/products/image-9.jpg' %}" alt=""></a></figure>
                             </div>
                             <div class="lower-content">
                                 <h3><a href="shop-single.html">Green Olives</a></h3>
                                 <div class="price"><span class="price-txt">$ 40.00</span></div>
                             </div>
-                            
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="prod-options">
-                                    <a class="lightbox-image option-btn" href="{% static 'images/resource/products/image-9.jpg' %}" title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-heart-o"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-retweet"></span></a>
-                                    <a href="shop-single.html" class="theme-btn add-cart-btn">ADD TO CART <span class="fa fa-shopping-cart"></span></a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
                     
-                    <!--Default Shop Item-->
-                    <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="shop-single.html"><img src="{% static 'images/resource/products/image-10.jpg' %}" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="shop-single.html">Carambola Fruits</a></h3>
-                                <div class="price"><span class="price-txt">$ 24.00</span></div>
-                            </div>
-                            
                             <!--Overlay Box-->
                             <div class="overlay-box">
                                 <div class="prod-options">
-                                    <a class="lightbox-image option-btn" href="{% static 'images/resource/products/image-10.jpg' %}" title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
+                                    <a class="lightbox-image option-btn" href="{% static 'images/resource/products/image-9.jpg' %}"
+                                        title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
                                     <a class="option-btn" href="shop-single.html"><span class="fa fa-heart-o"></span></a>
                                     <a class="option-btn" href="shop-single.html"><span class="fa fa-retweet"></span></a>
-                                    <a href="shop-single.html" class="theme-btn add-cart-btn">ADD TO CART <span class="fa fa-shopping-cart"></span></a>
+                                    <a href="shop-single.html" class="theme-btn add-cart-btn">ADD TO CART <span
+                                            class="fa fa-shopping-cart"></span></a>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </div>
                     
-                    <!--Default Shop Item-->
-                    <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="shop-single.html"><img src="{% static 'images/resource/products/image-11.jpg' %}" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="shop-single.html">Dragon Fruits</a></h3>
-                                <div class="price"><span class="price-txt">$ 50.00</span></div>
-                            </div>
-                            
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="prod-options">
-                                    <a class="lightbox-image option-btn" href="{% static 'images/resource/products/image-11.jpg' %}" title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-heart-o"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-retweet"></span></a>
-                                    <a href="shop-single.html" class="theme-btn add-cart-btn">ADD TO CART <span class="fa fa-shopping-cart"></span></a>
-                                </div>
-                            </div>
-                            
                         </div>
                     </div>
-                    
-                    <!--Default Shop Item-->
-                    <div class="default-shop-item col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="shop-single.html"><img src="{% static 'images/resource/products/image-12.jpg' %}" alt=""></a></figure>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="shop-single.html">Broccoli</a></h3>
-                                <div class="price"><span class="price-txt">$ 16.00</span></div>
-                            </div>
-                            
-                            <!--Overlay Box-->
-                            <div class="overlay-box">
-                                <div class="prod-options">
-                                    <a class="lightbox-image option-btn" href="{% static 'images/resource/products/image-12.jpg' %}" title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-heart-o"></span></a>
-                                    <a class="option-btn" href="shop-single.html"><span class="fa fa-retweet"></span></a>
-                                    <a href="shop-single.html" class="theme-btn add-cart-btn">ADD TO CART <span class="fa fa-shopping-cart"></span></a>
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
+                    {% endfor %}
                     
                     
                 </div>

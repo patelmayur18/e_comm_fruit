@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% block contant %}
+{% load socialaccount %}
+{% providers_media_js %}
 <div>
   <!-- component -->
 <!-- Icons font CSS-->
@@ -23,17 +25,24 @@
       <div class="card-heading"></div>
       <div class="card-body">
         <h2 class="title">Login</h2>
-        <form>
+        <form  action="{% url 'login' %}" method="POST" >
+          {% csrf_token %}
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="text" name="username" class="form-control" placeholder="Username" required>
+            <i class="flaticon-mail"></i>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
+            <input type="password" class="form-control" placeholder="Password" name="password">
           </div>
           <button type="submit" class="btn btn-primary">Login</button>
+          <div class="clearfix"></div>
+          <ul class="social-list">
+            <li><a href="{% provider_login_url 'facebook' method='oauth2' %}" class="facebook-bg" style="background-color: #0C86EF;color: white;"><i
+                  class="fa fa-facebook facebook-i"></i><span>Facebook</span></a></li>
+          </ul> 
+          <ul>
+            <li><a href="{% provider_login_url 'google' %}" class="google-bg" style="color: red;"><i class="fa fa-google google"></i><span>Google+</span></a></li>
+          </ul>    
         </form>
       </div>
     </div>

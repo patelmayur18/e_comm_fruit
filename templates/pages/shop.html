@@ -54,7 +54,7 @@
                                     title="Image Caption Here" data-fancybox-group="example-gallery"><span class="fa fa-eye"></span></a>
                                 <a class="option-btn" href="shop-single.html"><span class="fa fa-heart-o"></span></a>
                                 <a class="option-btn" href="{{product.get_absolute_url}}"><span class="fa fa-retweet"></span></a>
-                                <a href="{{product.get_absolute_url}}" class="theme-btn add-cart-btn">ADD TO CART <span
+                                <a href="{% url 'add_to_cart' product.slug %}" class="theme-btn add-cart-btn">ADD TO CART <span
                                         class="fa fa-shopping-cart"></span></a>
                             </div>
                         </div>

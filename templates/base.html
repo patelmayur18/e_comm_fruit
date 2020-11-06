@@ -1,4 +1,5 @@
 {% load static %}
+{% load pages_template_tags %}
 <!DOCTYPE html>
 <html>
 
@@ -33,27 +34,28 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-md-8 col-sm-7">
-                        
+
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-5">
                         <ul class="top-social-media pull-right">
                             {% if user.is_authenticated %}
+
                             
-                                <a href="{% url 'dashboard' %}" class="sign-in"><i class="fa fa-tachometer"></i> Dashboard</a>
+                            <a href="{% url 'user' %}">Hello {{request.user.username}}</a>
                             
-                                <a href="javascript:{document.getElementById('logout').submit()}" class="sign-in"><i
-                                        class="fa fa-sign-out"></i> Logout</a>
-                                <form action="{% url 'logout' %}" method="post" id="logout">
-                                    {% csrf_token %}
-                                    <input type="hidden">
-                                </form>
-                            
+                            <a href="javascript:{document.getElementById('logout').submit()}" class="sign-in"><i
+                                    class="fa fa-sign-out"></i> Logout</a>
+                            <form action="{% url 'logout' %}" method="post" id="logout">
+                                {% csrf_token %}
+                                <input type="hidden">
+                            </form>
+
                             {% else %}
-                                <a href="{% url 'login' %}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
-                            
-                            
-                                <a href="{% url 'register' %}" class="sign-in"><i class="fa fa-user"></i> Register</a>
-                            
+                            <a href="{% url 'login' %}" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+
+
+                            <a href="{% url 'register' %}" class="sign-in"><i class="fa fa-user"></i> Register</a>
+
                             {% endif %}
                         </ul>
                     </div>
@@ -61,12 +63,12 @@
             </div>
             <!-- Main Box -->
             <div class="main-box">
-                
+
                 <div class="auto-container">
                     <div class="outer-container clearfix">
                         <!--Logo Box-->
                         <div class="logo-box">
-                            <div class="logo"><a href="index-2.html"><img src="{% static 'images/logo.png' %}"
+                            <div class="logo"><a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"
                                         alt=""></a></div>
                         </div>
 
@@ -88,9 +90,19 @@
                                     <ul class="navigation clearfix">
                                         <li class="nav-item active"><a href="{% url 'home' %}">Home</a>
                                         </li>
-                                        
+
                                         <li class="nav-item"><a href="{% url 'blog' %}">Blog</a>
                                         </li>
+                                        {% if request.user.is_authenticated %}
+                                          
+                                        
+                                        <li class="nav-item"><a href="{% url 'cart' %}"> <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cart" fill="currentColor"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd"
+                                                d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm7 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                                        </svg>{{request.user | cart_item_count}}</a>
+                                        </li>
+                                        {% endif %}
                                         <li><a href="{% url 'about' %}">About Us</a></li>
                                         <li><a href="{% url 'contact' %}">Contact Us</a></li>
                                     </ul>
@@ -183,137 +195,150 @@
 
             </div><!-- / Hidden Bar Wrapper -->
         </section>
-    <!-- / Hidden Bar -->
-{% block contant %}
-  
-{% endblock contant %}        
-    <!--Main Footer / Footer Style One-->
-    <footer class="main-footer footer-style-one">
-    
-        <!--Footer Upper-->
-        <div class="footer-upper">
-            <div class="auto-container">
-                <div class="row clearfix">
-    
-                    <!--Footer Column-->
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget about-widget">
-                            <figure class="footer-logo"><a href="index-2.html"><img src="{% static 'images/logo-3.png' %}"
-                                        alt=""></a></figure>
-    
-                            <div class="text">
-                                <p>Vestibulum facilisis rhoncus tempor. Duis non ipsum volutpat, rhoat nacus nisi sed,
-                                    pulvinar ex.</p>
-                                <p>Etiam sit amet libero consea typoe, convallis odio estibulum urna.</p>
-                            </div>
-    
-                        </div>
-                    </div>
-    
-                    <!--Footer Column-->
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget info-widget">
-                            <h2>KEEP IN TOUCH</h2>
-                            <ul class="info">
-                                <li>Address : 44 New Design Street, Down Town, Melbourne 005</li>
-                                <li>Phone : 800 433 633 (or) 452 23 4354</li>
-                                <li>Email : Stevan@Example.com</li>
-                            </ul>
-                        </div>
-                    </div>
-    
-    
-                    <!--Footer Column-->
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
-                        <div class="footer-widget gallery-widget">
-                            <h2>Instagram Feed</h2>
-                            <div class="clearfix">
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-4.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-1.jpg' %}" alt=""></a></figure>
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-5.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-2.jpg' %}" alt=""></a></figure>
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-6.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-3.jpg' %}" alt=""></a></figure>
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-7.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-4.jpg' %}" alt=""></a></figure>
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-8.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-5.jpg' %}" alt=""></a></figure>
-                                <figure class="image"><a href="{% static 'images/resource/blog-image-9.jpg' %}"
-                                        class="lightbox-image" data-fancybox-group="fancybox" title="Caption Here"><img
-                                            src="{% static 'images/resource/footer-gallery-6.jpg' %}" alt=""></a></figure>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <!--Footer Column-->
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column padd-left-60">
-                        <div class="footer-widget links-widget">
-                            <h2>Featured links</h2>
-                            <div class="row clearfix">
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <ul>
-                                        <li><a href="#">About</a></li>
-                                        <li><a href="#">Testimonial</a></li>
-                                        <li><a href="#">Team Members</a></li>
-                                    </ul>
+        <!-- / Hidden Bar -->
+        {% block contant %}
+
+        {% endblock contant %}
+        <!--Main Footer / Footer Style One-->
+        <footer class="main-footer footer-style-one">
+
+            <!--Footer Upper-->
+            <div class="footer-upper">
+                <div class="auto-container">
+                    <div class="row clearfix">
+
+                        <!--Footer Column-->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
+                            <div class="footer-widget about-widget">
+                                <figure class="footer-logo"><a href="index-2.html"><img
+                                            src="{% static 'images/logo-3.png' %}" alt=""></a></figure>
+
+                                <div class="text">
+                                    <p>Vestibulum facilisis rhoncus tempor. Duis non ipsum volutpat, rhoat nacus nisi
+                                        sed,
+                                        pulvinar ex.</p>
+                                    <p>Etiam sit amet libero consea typoe, convallis odio estibulum urna.</p>
                                 </div>
-    
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <ul>
-                                        <li><a href="#">What We Do</a></li>
-                                        <li><a href="#">New Products</a></li>
-                                        <li><a href="#">Our Careere</a></li>
-                                    </ul>
+
+                            </div>
+                        </div>
+
+                        <!--Footer Column-->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
+                            <div class="footer-widget info-widget">
+                                <h2>KEEP IN TOUCH</h2>
+                                <ul class="info">
+                                    <li>Address : 44 New Design Street, Down Town, Melbourne 005</li>
+                                    <li>Phone : 800 433 633 (or) 452 23 4354</li>
+                                    <li>Email : Stevan@Example.com</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!--Footer Column-->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column">
+                            <div class="footer-widget gallery-widget">
+                                <h2>Instagram Feed</h2>
+                                <div class="clearfix">
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-4.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-1.jpg' %}" alt=""></a>
+                                    </figure>
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-5.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-2.jpg' %}" alt=""></a>
+                                    </figure>
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-6.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-3.jpg' %}" alt=""></a>
+                                    </figure>
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-7.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-4.jpg' %}" alt=""></a>
+                                    </figure>
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-8.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-5.jpg' %}" alt=""></a>
+                                    </figure>
+                                    <figure class="image"><a href="{% static 'images/resource/blog-image-9.jpg' %}"
+                                            class="lightbox-image" data-fancybox-group="fancybox"
+                                            title="Caption Here"><img
+                                                src="{% static 'images/resource/footer-gallery-6.jpg' %}" alt=""></a>
+                                    </figure>
                                 </div>
                             </div>
-                            <br>
-                            <div class="social-links">
-                                <h3>Follow Us On:</h3>
-                                <div class="links">
-                                    <a href="#"><span class="fa fa-facebook-official"></span></a>
-                                    <a href="#"><span class="fa fa-twitter"></span></a>
-                                    <a href="#"><span class="fa fa-google-plus"></span></a>
-                                    <a href="#"><span class="fa fa-instagram"></span></a>
-                                    <a href="#"><span class="fa fa-vimeo-square"></span></a>
-                                    <a href="#"><span class="fa fa-youtube-play"></span></a>
-                                    <a href="#"><span class="fa fa-dropbox"></span></a>
-                                </div>
-    
-                            </div>
-    
                         </div>
+
+                        <!--Footer Column-->
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 column padd-left-60">
+                            <div class="footer-widget links-widget">
+                                <h2>Featured links</h2>
+                                <div class="row clearfix">
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <ul>
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Testimonial</a></li>
+                                            <li><a href="#">Team Members</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                        <ul>
+                                            <li><a href="#">What We Do</a></li>
+                                            <li><a href="#">New Products</a></li>
+                                            <li><a href="#">Our Careere</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="social-links">
+                                    <h3>Follow Us On:</h3>
+                                    <div class="links">
+                                        <a href="https://www.facebook.com"><span class="fa fa-facebook-official"></span></a>
+                                        <a href="https://www.twitter.com"><span class="fa fa-twitter"></span></a>
+                                        <a href="https://www.google.com"><span class="fa fa-google-plus"></span></a>
+                                        <a href="https://www.instagram.com"><span class="fa fa-instagram"></span></a>
+                                        <!-- <a href="#"><span class="fa fa-vimeo-square"></span></a> -->
+                                        <a href="https://www.youtube.com"><span class="fa fa-youtube-play"></span></a>
+                                        <a href="https://www.dropbox.com"><span class="fa fa-dropbox"></span></a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
                     </div>
-    
-    
+
                 </div>
-    
             </div>
-        </div>
-    
-        <!--Footer Bottom-->
-        <div class="footer-bottom">
-            <div class="auto-container">
-    
-                <!--Copyright-->
-                <div class="copyright">Copyrights &copy; Warsaw 2016. All rights reserved.</div>
-    
+
+            <!--Footer Bottom-->
+            <div class="footer-bottom">
+                <div class="auto-container">
+
+                    <!--Copyright-->
+                    <div class="copyright">Copyrights &copy; Warsaw 2016. All rights reserved.</div>
+
+                </div>
             </div>
-        </div>
-    
-    </footer>
-    
+
+        </footer>
+
     </div>
     <!--End pagewrapper-->
-    
+
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-long-arrow-up"></span></div>
-    
-    
+
+
     <script src="{% static 'js/jquery.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
@@ -324,14 +349,14 @@
     <script src="{% static 'js/owl.js' %}"></script>
     <script src="{% static 'js/wow.js' %}"></script>
     <script src="{% static 'js/script.js' %}"></script>
-    
+
     <!--Google Map APi Key-->
     <script src="http://maps.google.com/maps/api/js?key="></script>
     <script src="{% static 'js/map-script.js' %}"></script>
     <!--End Google Map APi-->
-    
-    </body>
-    
-    <!-- Mirrored from world5.commonsupport.com/2017/warsaw/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Oct 2020 11:14:47 GMT -->
-    
-    </html>
+
+</body>
+
+<!-- Mirrored from world5.commonsupport.com/2017/warsaw/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 30 Oct 2020 11:14:47 GMT -->
+
+</html>
